@@ -1,4 +1,4 @@
-package com.ets.demo;
+package com.ets;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
