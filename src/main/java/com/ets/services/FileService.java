@@ -28,6 +28,8 @@ public class FileService {
 	private FileRepository fileRepository;
 	
     private final List<String> fileExtensions = Arrays.asList("png", "jpeg", "jpg", "docx", "pdf", "xlsx");
+    
+    private final Long maxFileSize = (long)5242880;
 
 
 	public JsonObject addFile(MultipartFile file) {
@@ -37,7 +39,7 @@ public class FileService {
 			 fileName = file.getOriginalFilename();
 			 filePath = uploadFilePath + fileName;
 
-			File dest = new File(filePath);
+			
 			extension = fileName.substring(fileName.lastIndexOf(".") + 1);
 			if(!fileExtensions.contains(extension)) {
 				result.addProperty("result", false);
@@ -45,6 +47,14 @@ public class FileService {
 				result.addProperty("exceptionCode", "this file extension is not allowed to be uploaded to the system");
 				return result;
 			}
+			
+			if(file.getSize()>maxFileSize) {
+				result.addProperty("result", false);
+				result.add("data",null);
+				result.addProperty("exceptionCode", "this file size is bigger than maxFileSize");
+				return result;
+			}
+			File dest = new File(filePath);
 	        
 			file.transferTo(dest);
 			

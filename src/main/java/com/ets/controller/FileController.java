@@ -28,7 +28,11 @@ public class FileController {
 			return ResponseEntity.status(HttpStatus.OK).body(result.toString());
 
 		} else {
-			return ResponseEntity.status(HttpStatus.OK).body("");
+			JsonObject result =new JsonObject();
+			result.addProperty("result", false);
+			result.add("data",null);
+			result.addProperty("exceptionCode", "this file is empty");
+			return ResponseEntity.status(HttpStatus.OK).body(result.toString());
 		}
 	}
 

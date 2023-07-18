@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "33de8ab2-c740-4297-a3eb-9561a39e647d",
+		"name": "etsDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9896408"
+	},
+	"item": [
+		{
+			"name": "getFile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXlbG9wX3VzZXIiLCJpYXQiOjE2ODk2NTI2NjYsImV4cCI6MTY4OTY1NDEwNn0.z3kRwQyCTGaITw78kqmJqbEgXP8gSSQr4nGQW_gfffQ"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/file/getFile?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"file",
+						"getFile"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/file/deleteFile?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"file",
+						"deleteFile"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFileList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:5000/file/getFileList"
+			},
+			"response": []
+		},
+		{
+			"name": "uploadFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:5000/file/uploadFile"
+			},
+			"response": []
+		},
+		{
+			"name": "generateToken",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
